@@ -36,18 +36,20 @@
 
 #include "AppGTest.h"
 
-class CinderGTestApp : public ci::app::AppGTest 
+class CinderGTestApp : public ci::app::AppGTest
 {
 public:
 	void						draw();
 	void						setup();
 	void						update();
-private:
+protected:
+	std::vector<uint32_t>		mNumbers;
 };
 
 using namespace ci;
 using namespace ci::app;
 using namespace std;
+using namespace testing;
 
 void CinderGTestApp::draw()
 {
@@ -61,7 +63,21 @@ void CinderGTestApp::setup()
 
 void CinderGTestApp::update()
 {
-	ASSERT_EQ( 0, 1 ) << "Goot\n";
+}
+
+TEST( CinderGTestApp, DrawTest ) {
+	CinderGTestApp app;
+	EXPECT_NO_THROW( app.draw() );
+}
+
+TEST( CinderGTestApp, SetupTest ) {
+	CinderGTestApp app;
+	EXPECT_NO_THROW( app.setup() );
+}
+
+TEST( CinderGTestApp, UpdateTest ) {
+	CinderGTestApp app;
+	EXPECT_NO_THROW( app.update() );
 }
 
 CINDER_APP_GTEST( CinderGTestApp, RendererGl )
