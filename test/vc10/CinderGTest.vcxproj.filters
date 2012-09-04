@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="blocks">
+      <UniqueIdentifier>{07107ebc-0127-4ea4-9af6-37921c5ca226}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="blocks\Cinder-GTest">
+      <UniqueIdentifier>{e2e66c44-a2d5-4a63-91d7-cf93b306157e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="blocks\Cinder-GTest\gtest">
+      <UniqueIdentifier>{057b0edb-4ac4-47ae-acb7-7fc6d21f15e6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="blocks\Cinder-GTest\gtest\internal">
+      <UniqueIdentifier>{967656e6-162a-45db-864a-dd7b517e6faf}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\CinderGTestApp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Resources.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\resources\texture.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\gtest\gtest-param-test.h.pump">
+      <Filter>blocks\Cinder-GTest\gtest</Filter>
+    </None>
+    <None Include="..\..\src\gtest\internal\gtest-param-util-generated.h.pump">
+      <Filter>blocks\Cinder-GTest\gtest\internal</Filter>
+    </None>
+    <None Include="..\..\src\gtest\internal\gtest-tuple.h.pump">
+      <Filter>blocks\Cinder-GTest\gtest\internal</Filter>
+    </None>
+    <None Include="..\..\src\gtest\internal\gtest-type-util.h.pump">
+      <Filter>blocks\Cinder-GTest\gtest\internal</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\gtest\gtest.h">
+      <Filter>blocks\Cinder-GTest\gtest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\gtest\gtest_pred_impl.h">
+      <Filter>blocks\Cinder-GTest\gtest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\gtest\gtest_prod.h">
+      <Filter>blocks\Cinder-GTest\gtest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\gtest\gtest-death-test.h">
+      <Filter>blocks\Cinder-GTest\gtest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\gtest\gtest-message.h">
+      <Filter>blocks\Cinder-GTest\gtest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\gtest\gtest-param-test.h">
+      <Filter>blocks\Cinder-GTest\gtest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\gtest\gtest-printers.h">
+      <Filter>blocks\Cinder-GTest\gtest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\gtest\gtest-spi.h">
+      <Filter>blocks\Cinder-GTest\gtest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\gtest\gtest-test-part.h">
+      <Filter>blocks\Cinder-GTest\gtest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\gtest\gtest-typed-test.h">
+      <Filter>blocks\Cinder-GTest\gtest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\gtest\internal\gtest-death-test-internal.h">
+      <Filter>blocks\Cinder-GTest\gtest\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\gtest\internal\gtest-filepath.h">
+      <Filter>blocks\Cinder-GTest\gtest\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\gtest\internal\gtest-internal.h">
+      <Filter>blocks\Cinder-GTest\gtest\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\gtest\internal\gtest-linked_ptr.h">
+      <Filter>blocks\Cinder-GTest\gtest\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\gtest\internal\gtest-param-util.h">
+      <Filter>blocks\Cinder-GTest\gtest\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\gtest\internal\gtest-param-util-generated.h">
+      <Filter>blocks\Cinder-GTest\gtest\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\gtest\internal\gtest-port.h">
+      <Filter>blocks\Cinder-GTest\gtest\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\gtest\internal\gtest-string.h">
+      <Filter>blocks\Cinder-GTest\gtest\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\gtest\internal\gtest-tuple.h">
+      <Filter>blocks\Cinder-GTest\gtest\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\gtest\internal\gtest-type-util.h">
+      <Filter>blocks\Cinder-GTest\gtest\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\AppGTest.h">
+      <Filter>blocks\Cinder-GTest</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

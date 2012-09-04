@@ -1,0 +1,6 @@
+Cinder-GTest
+============
+Google unit testing for Cinder
+
+This block introduces macros for creating Cinder apps 
+compatible with Google Test.
