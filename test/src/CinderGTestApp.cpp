@@ -61,6 +61,7 @@ void CinderGTestApp::setup()
 
 void CinderGTestApp::update()
 {
+	ASSERT_EQ( 0, 1 ) << "Goot\n";
 }
 
 CINDER_APP_GTEST( CinderGTestApp, RendererGl )
