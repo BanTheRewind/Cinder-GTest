@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\src\AppTest.cpp" />
     <ClCompile Include="..\src\CinderGTestApp.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -45,6 +46,8 @@
     <ClInclude Include="..\..\src\gtest\internal\gtest-string.h" />
     <ClInclude Include="..\..\src\gtest\internal\gtest-tuple.h" />
     <ClInclude Include="..\..\src\gtest\internal\gtest-type-util.h" />
+    <ClInclude Include="..\include\AppTest.h" />
+    <ClInclude Include="..\include\CinderGTestApp.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{74202EDD-91D2-4D2A-B0B6-355CEB16E6BE}</ProjectGuid>
@@ -97,7 +100,7 @@
     </ClCompile>
     <Link>
       <AdditionalDependencies>cinder_d.lib;gtestd.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>..\..\..\..\lib;..\..\..\..\lib\msw;..\..\..\..\blocks\Cinder-GTest\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\..\..\..\lib;..\..\..\..\lib\msw;..\..\..\..\blocks\Cinder-GTest\lib\msw;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
@@ -125,7 +128,7 @@
     </ProjectReference>
     <Link>
       <AdditionalDependencies>cinder.lib;gtest.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>..\..\..\..\lib;..\..\..\..\lib\msw;..\..\..\..\blocks\Cinder-GTest\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\..\..\..\lib;..\..\..\..\lib\msw;..\..\..\..\blocks\Cinder-GTest\lib\msw;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <GenerateMapFile>true</GenerateMapFile>
       <SubSystem>Windows</SubSystem>

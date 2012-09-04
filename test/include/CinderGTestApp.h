@@ -36,34 +36,31 @@
 
 #pragma once
 
-#include "gtest/gtest.h"
-#include "cinder/app/AppBasic.h"
+#include "CinderGTest.h"
 
-#if defined( CINDER_MAC )
-	#define CINDER_APP_GTEST( APP, RENDERER )								\
-	GTEST_API_ int main( int argc, char * const argv[] ) {					\
-		testing::InitGoogleTest(&argc, (char **)argv);						\
-		RUN_ALL_TESTS();													\
-		cinder::app::AppBasic::prepareLaunch();								\
-		cinder::app::AppBasic *app = new APP;								\
-		cinder::app::Renderer *ren = new RENDERER;							\
-		cinder::app::AppBasic::executeLaunch( app, ren, #APP, argc, argv );	\
-		cinder::app::AppBasic::cleanupLaunch();								\
-		return 0;															\
-	}
-#elif defined( CINDER_MSW )
-	#include "Shellapi.h"
-	#define CINDER_APP_GTEST( APP, RENDERER )																	\
-	GTEST_API_ int WINAPI WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine,int nCmdShow) {	\
-		int argc;																								\
-		wchar_t** argv = CommandLineToArgvW( GetCommandLineW(), &argc );										\
-		testing::InitGoogleTest( &argc, argv );																	\
-		RUN_ALL_TESTS();																						\
-		cinder::app::AppBasic::prepareLaunch();																	\
-		cinder::app::AppBasic *app = new APP;																	\
-		cinder::app::Renderer *ren = new RENDERER;																\
-		cinder::app::AppBasic::executeLaunch( app, ren, #APP );													\
-		cinder::app::AppBasic::cleanupLaunch();																	\
-		return 0;																								\
-	}
-#endif
+/* 
+* This application demonstrates how to implement Google C++ Testing
+* in Cinder. The application itself does essentially nothing, while
+* the "AppTest" class performs some tests and experiments on it. 
+* Pay attenetion to the macro used to initialize the application 
+* in the CPP file.
+* 
+* Errors will be reported to your debug console complete with
+* file, line number, error description, and your custom message, if any.
+* 
+* Check out the wiki to get the most out of Google Test:
+* http://code.google.com/p/googletest/w/list
+*/
+class CinderGTestApp : public ci::app::AppBasic
+{
+public:
+	void						draw();
+	void						setup();
+	void						update();
+
+	int32_t						getCounter();
+	std::vector<uint32_t>&		getNumbers();
+private:
+	int32_t						mCounter;
+	std::vector<uint32_t>		mNumbers;
+};

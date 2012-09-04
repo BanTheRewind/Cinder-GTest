@@ -36,34 +36,39 @@
 
 #pragma once
 
-#include "gtest/gtest.h"
-#include "cinder/app/AppBasic.h"
+#include "AppTest.h"
 
-#if defined( CINDER_MAC )
-	#define CINDER_APP_GTEST( APP, RENDERER )								\
-	GTEST_API_ int main( int argc, char * const argv[] ) {					\
-		testing::InitGoogleTest(&argc, (char **)argv);						\
-		RUN_ALL_TESTS();													\
-		cinder::app::AppBasic::prepareLaunch();								\
-		cinder::app::AppBasic *app = new APP;								\
-		cinder::app::Renderer *ren = new RENDERER;							\
-		cinder::app::AppBasic::executeLaunch( app, ren, #APP, argc, argv );	\
-		cinder::app::AppBasic::cleanupLaunch();								\
-		return 0;															\
+TEST_F( AppTest, DrawTest ) 
+{
+	EXPECT_NO_THROW( mApp.draw() );
+}
+
+TEST_F( AppTest, SetupTest ) 
+{
+	// The following tests should all fail
+	EXPECT_EQ( mApp.getCounter(), 0 ) << "Not initialized (should cause access violation error)\n";
+	EXPECT_ANY_THROW( mApp.setup() ) << "This should be reported because there is no exception thrown\n";
+	EXPECT_GT( mApp.getCounter(), 0 ) << "This should be 0\n";
+}
+
+TEST_F( AppTest, UpdateTest ) 
+{
+	EXPECT_NO_THROW( mApp.update() );
+}
+
+TEST_F( AppTest, NumbersTest ) 
+{
+	mApp.getNumbers().push_back( 1 );
+	EXPECT_GT( mApp.getNumbers().size(), 1 ) << "Not enough numbers!\n";
+}
+
+TEST( GlobalTestSuite, GlobalTest ) 
+{
+	CinderGTestApp app;
+	app.setup();
+	for ( size_t i = 0; i < 4; ++i ) {
+		app.update();
 	}
-#elif defined( CINDER_MSW )
-	#include "Shellapi.h"
-	#define CINDER_APP_GTEST( APP, RENDERER )																	\
-	GTEST_API_ int WINAPI WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine,int nCmdShow) {	\
-		int argc;																								\
-		wchar_t** argv = CommandLineToArgvW( GetCommandLineW(), &argc );										\
-		testing::InitGoogleTest( &argc, argv );																	\
-		RUN_ALL_TESTS();																						\
-		cinder::app::AppBasic::prepareLaunch();																	\
-		cinder::app::AppBasic *app = new APP;																	\
-		cinder::app::Renderer *ren = new RENDERER;																\
-		cinder::app::AppBasic::executeLaunch( app, ren, #APP );													\
-		cinder::app::AppBasic::cleanupLaunch();																	\
-		return 0;																								\
-	}
-#endif
+	EXPECT_EQ( app.getNumbers().size(), 5 ) << "Did not add five numbers\n";
+	EXPECT_EQ( app.getNumbers().size(), 4 );
+}

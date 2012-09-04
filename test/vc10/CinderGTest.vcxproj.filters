@@ -30,6 +30,9 @@
     <ClCompile Include="..\src\CinderGTestApp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\AppTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resources.rc">
@@ -116,6 +119,12 @@
     </ClInclude>
     <ClInclude Include="..\..\src\CinderGTest.h">
       <Filter>blocks\Cinder-GTest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\CinderGTestApp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\AppTest.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
