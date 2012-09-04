@@ -24,7 +24,7 @@
     <None Include="..\resources\texture.png" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\src\AppGTest.h" />
+    <ClInclude Include="..\..\src\CinderGTest.h" />
     <ClInclude Include="..\..\src\gtest\gtest-death-test.h" />
     <ClInclude Include="..\..\src\gtest\gtest-message.h" />
     <ClInclude Include="..\..\src\gtest\gtest-param-test.h" />

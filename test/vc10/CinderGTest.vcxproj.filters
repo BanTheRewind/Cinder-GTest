@@ -114,7 +114,7 @@
     <ClInclude Include="..\..\src\gtest\internal\gtest-type-util.h">
       <Filter>blocks\Cinder-GTest\gtest\internal</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\AppGTest.h">
+    <ClInclude Include="..\..\src\CinderGTest.h">
       <Filter>blocks\Cinder-GTest</Filter>
     </ClInclude>
   </ItemGroup>

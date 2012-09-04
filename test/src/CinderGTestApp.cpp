@@ -34,16 +34,24 @@
 * 
 */
 
-#include "AppGTest.h"
+#include "CinderGTest.h"
 
-class CinderGTestApp : public ci::app::AppGTest
+class CinderGTestApp : public ci::app::AppBasic
 {
 public:
 	void						draw();
 	void						setup();
 	void						update();
+
+	std::vector<uint32_t>&		getNumbers();
 protected:
 	std::vector<uint32_t>		mNumbers;
+};
+
+class AppTest : public testing::Test
+{
+public:
+	CinderGTestApp mApp;
 };
 
 using namespace ci;
@@ -57,6 +65,11 @@ void CinderGTestApp::draw()
 	gl::clear( ColorAf::black() );
 }
 
+vector<uint32_t>& CinderGTestApp::getNumbers()
+{
+	return mNumbers;
+}
+
 void CinderGTestApp::setup()
 {
 }
@@ -65,19 +78,21 @@ void CinderGTestApp::update()
 {
 }
 
-TEST( CinderGTestApp, DrawTest ) {
-	CinderGTestApp app;
-	EXPECT_NO_THROW( app.draw() );
+TEST_F( AppTest, DrawTest ) {
+	EXPECT_NO_THROW( mApp.draw() );
 }
 
-TEST( CinderGTestApp, SetupTest ) {
-	CinderGTestApp app;
-	EXPECT_NO_THROW( app.setup() );
+TEST_F( AppTest, SetupTest ) {
+	EXPECT_NO_THROW( mApp.setup() );
 }
 
-TEST( CinderGTestApp, UpdateTest ) {
-	CinderGTestApp app;
-	EXPECT_NO_THROW( app.update() );
+TEST_F( AppTest, UpdateTest ) {
+	EXPECT_NO_THROW( mApp.update() );
 }
 
-CINDER_APP_GTEST( CinderGTestApp, RendererGl )
+TEST_F( AppTest, NumbersTest ) {
+	mApp.getNumbers().push_back( 1 );
+	EXPECT_EQ( mApp.getNumbers().size(), 1 );
+}
+
+CINDER_APP_GTEST( AppBasic, RendererGl )
