@@ -4,3 +4,18 @@ Google unit testing for Cinder
 
 This block introduces macros for creating Cinder apps 
 compatible with Google Test.
+
+WINDOWS
+============
+
+Use Google's Test UI as a free test runner:
+http://code.google.com/p/gtest-gbar/
+
+Or generate logs like so:
+
+1) Create a folder to store your logs. For example, "c:\GoogleTest. 
+2) Go to “My Computer”, right click and got to “Properties”. 
+3) Go to “Advanced system settings” and open “Environment Variables” 
+4) Click “New” under “System variables” and add the following: 
+   a. Variable name: GTEST_OUTPUT 
+   b. Variable Value: xml:c:\GoogleTest\
