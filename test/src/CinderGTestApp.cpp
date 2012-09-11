@@ -68,8 +68,8 @@ void CinderGTestApp::update()
 }
 
 // Note the call to the macro
-#if defined( _DEBUG )
+#if defined( _TEST )
 	CINDER_APP_GTEST( AppBasic, RendererGl )
 #else
-	CINDER_APP_BASIC_GTEST( AppBasic, RendererGl )
+	CINDER_APP_BASIC( AppBasic, RendererGl )
 #endif
