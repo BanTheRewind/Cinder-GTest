@@ -38,37 +38,42 @@
 
 #include "AppTest.h"
 
-TEST_F( AppTest, DrawTest ) 
+void AppTest::SetUp()
 {
-	EXPECT_NO_THROW( mApp.draw() );
+	mApp = new CinderGTestApp();
+}
+
+void AppTest::TearDown()
+{
+	delete mApp;
 }
 
 TEST_F( AppTest, SetupTest ) 
 {
 	// The following tests should all fail
-	EXPECT_EQ( mApp.getCounter(), 0 ) << "Not initialized (should cause access violation error)\n";
-	EXPECT_ANY_THROW( mApp.setup() ) << "This should be reported because there is no exception thrown\n";
-	EXPECT_GT( mApp.getCounter(), 0 ) << "This should be 0\n";
+	EXPECT_EQ( mApp->getCounter(), 0 ) << "Not initialized (should cause access violation error)\n";
+	EXPECT_ANY_THROW( mApp->setup() ) << "This should be reported because there is no exception thrown\n";
+	EXPECT_GT( mApp->getCounter(), 0 ) << "This should be 0\n";
 }
 
 TEST_F( AppTest, UpdateTest ) 
 {
-	EXPECT_NO_THROW( mApp.update() );
+	EXPECT_NO_THROW( mApp->update() );
 }
 
 TEST_F( AppTest, NumbersTest ) 
 {
-	mApp.getNumbers().push_back( 1 );
-	EXPECT_GT( mApp.getNumbers().size(), 1 ) << "Not enough numbers!\n";
+	mApp->getNumbers().push_back( 1 );
+	EXPECT_GT( mApp->getNumbers().size(), 1 ) << "Not enough numbers!\n";
 }
 
 TEST( GlobalTestSuite, GlobalTest ) 
 {
-	CinderGTestApp app;
-	app.setup();
+	CinderGTestApp* app = new CinderGTestApp();
+	app->setup();
 	for ( size_t i = 0; i < 4; ++i ) {
-		app.update();
+		app->update();
 	}
-	EXPECT_EQ( app.getNumbers().size(), 5 ) << "Did not add five numbers\n";
-	EXPECT_EQ( app.getNumbers().size(), 4 );
+	EXPECT_EQ( app->getNumbers().size(), 5 ) << "Did not add five numbers\n";
+	EXPECT_EQ( app->getNumbers().size(), 4 );
 }

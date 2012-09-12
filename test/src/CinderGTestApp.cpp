@@ -67,7 +67,6 @@ void CinderGTestApp::update()
 	mNumbers.push_back( mNumbers.size() );
 }
 
-// Note the call to the macro
 #if defined( _TEST )
 	CINDER_APP_GTEST( AppBasic, RendererGl )
 #else

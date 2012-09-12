@@ -41,5 +41,8 @@
 class AppTest : public testing::Test
 {
 public:
-	CinderGTestApp mApp;
+	void SetUp();
+	void TearDown();
+protected:
+	CinderGTestApp* mApp;
 };
