@@ -68,7 +68,7 @@ void CinderGTestApp::update()
 }
 
 #if defined( _TEST )
-	CINDER_APP_GTEST( AppBasic, RendererGl )
+	CINDER_APP_GTEST( CinderGTestApp, RendererGl )
 #else
-	CINDER_APP_BASIC( AppBasic, RendererGl )
+	CINDER_APP_BASIC( CinderGTestApp, RendererGl )
 #endif
