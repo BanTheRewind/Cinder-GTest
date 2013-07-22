@@ -14,13 +14,13 @@
 		00B784B50FF439BC000DE1D7 /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B10FF439BC000DE1D7 /* AudioUnit.framework */; };
 		00B784B60FF439BC000DE1D7 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B20FF439BC000DE1D7 /* CoreAudio.framework */; };
 		00CCAF15116A9FEE008396D5 /* CinderApp.icns in Resources */ = {isa = PBXBuildFile; fileRef = 00CCAF14116A9FEE008396D5 /* CinderApp.icns */; };
+		4107879C179DC2A8004DD263 /* AppTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 41D703551608E95A00D0322E /* AppTest.cpp */; };
 		41D703581608E97A00D0322E /* CinderGTestApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 41D703571608E97A00D0322E /* CinderGTestApp.cpp */; };
 		41D7038D1608EB6F00D0322E /* gtest-param-test.h.pump in Resources */ = {isa = PBXBuildFile; fileRef = 41D703771608EB6F00D0322E /* gtest-param-test.h.pump */; };
 		41D7038E1608EB6F00D0322E /* gtest-param-util-generated.h.pump in Resources */ = {isa = PBXBuildFile; fileRef = 41D703851608EB6F00D0322E /* gtest-param-util-generated.h.pump */; };
 		41D7038F1608EB6F00D0322E /* gtest-tuple.h.pump in Resources */ = {isa = PBXBuildFile; fileRef = 41D7038A1608EB6F00D0322E /* gtest-tuple.h.pump */; };
 		41D703901608EB6F00D0322E /* gtest-type-util.h.pump in Resources */ = {isa = PBXBuildFile; fileRef = 41D7038C1608EB6F00D0322E /* gtest-type-util.h.pump */; };
 		41D703A21608EF0D00D0322E /* CinderGTestApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 41D703571608E97A00D0322E /* CinderGTestApp.cpp */; };
-		41D703A31608EF1300D0322E /* AppTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 41D703551608E95A00D0322E /* AppTest.cpp */; };
 		41D7040E1609007600D0322E /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784AF0FF439BC000DE1D7 /* Accelerate.framework */; };
 		41D7040F1609007600D0322E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B00FF439BC000DE1D7 /* AudioToolbox.framework */; };
 		41D704101609007600D0322E /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B10FF439BC000DE1D7 /* AudioUnit.framework */; };
@@ -344,8 +344,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4107879C179DC2A8004DD263 /* AppTest.cpp in Sources */,
 				41D703A21608EF0D00D0322E /* CinderGTestApp.cpp in Sources */,
-				41D703A31608EF1300D0322E /* AppTest.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,8 +363,9 @@
 		41D703A01608EE3E00D0322E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = i386;
-				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CINDER_PATH = "$(inherited)";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -379,7 +380,7 @@
 					"$(inherited)",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_VERSION = "";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
@@ -389,16 +390,17 @@
 					../../lib/macosx/libgtest_d.a,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx10.7;
-				VALID_ARCHS = i386;
+				SDKROOT = macosx;
+				VALID_ARCHS = "i386 x86_64";
 			};
 			name = Debug;
 		};
 		41D703A11608EE3E00D0322E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = i386;
-				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CINDER_PATH = "$(inherited)";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -407,7 +409,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "";
 				GCC_PREPROCESSOR_DEFINITIONS = _Test;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_VERSION = "";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
@@ -416,8 +418,8 @@
 					../../lib/macosx/libgtest.a,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx10.7;
-				VALID_ARCHS = i386;
+				SDKROOT = macosx;
+				VALID_ARCHS = "i386 x86_64";
 			};
 			name = Release;
 		};
@@ -466,13 +468,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = i386;
-				CINDER_PATH = ../../../Cinder;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CINDER_PATH = ../../../Cinder_0.8.5;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "\"$(CINDER_PATH)/boost\"";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
-				SDKROOT = macosx10.7;
+				SDKROOT = macosx;
 				USER_HEADER_SEARCH_PATHS = "\"$(CINDER_PATH)/include\" ../include ../../src";
 			};
 			name = Debug;
@@ -481,13 +485,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = i386;
-				CINDER_PATH = ../../../Cinder;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CINDER_PATH = ../../../Cinder_0.8.5;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "\"$(CINDER_PATH)/boost\"";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
-				SDKROOT = macosx10.7;
+				SDKROOT = macosx;
 				USER_HEADER_SEARCH_PATHS = "\"$(CINDER_PATH)/include\" ../include ../../src";
 			};
 			name = Release;
@@ -502,6 +508,7 @@
 				41D703A11608EE3E00D0322E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "CinderApp" */ = {
 			isa = XCConfigurationList;
