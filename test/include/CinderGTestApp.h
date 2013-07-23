@@ -53,7 +53,7 @@
 * Check out the wiki to get the most out of Google Test:
 * http://code.google.com/p/googletest/w/list
 */
-class CinderGTestApp : public ci::app::AppBasic
+class CinderGTestApp : public ci::app::AppNative
 {
 public:
 	void						draw();

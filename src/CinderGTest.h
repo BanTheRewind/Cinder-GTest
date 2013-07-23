@@ -39,7 +39,7 @@
 #pragma once
 
 #include "gtest/gtest.h"
-#include "cinder/app/AppBasic.h"
+#include "cinder/app/AppNative.h"
 
 #if defined( CINDER_MAC )
 	#define CINDER_APP_GTEST( APP, RENDERER )							\
