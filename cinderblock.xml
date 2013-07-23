@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<cinder>
+<block
+	name="GoogleTest"
+	id="org.libcinder.gtest"
+	author="Stephen Schieberl and Caleb Johnston"
+	license="BSD"
+	summary="Wraps the Google Test C++ framework for use with Cinder"
+	git="https://github.com/BanTheRewind/Cinder-GTest"
+	library="http://code.google.com/p/googletest/"
+	>
+	<headerPattern>src/CinderGTest.h</headerPattern>
+	<headerPattern>src/gtest/*.*</headerPattern>
+	<headerPattern>src/gtest/internal/*.*</headerPattern>
+	<includePath>src</includePath>
+	<platform compiler="vc10">
+		<platform config="debug">
+			<staticLibrary>lib/msw/gtestd.lib</staticLibrary>
+		</platform>
+		<platform config="release">
+			<staticLibrary>lib/msw/gtest.lib</staticLibrary>
+		</platform>
+	</platform>
+	<platform compiler="vc11">
+		<platform config="debug">
+			<staticLibrary>lib/msw/gtestd.lib</staticLibrary>
+		</platform>
+		<platform config="release">
+			<staticLibrary>lib/msw/gtest.lib</staticLibrary>
+		</platform>
+	</platform>
+	<platform os="macosx">
+		<platform config="debug">
+			<staticLibrary>lib/macosx/libgtest_d.a</staticLibrary>
+		</platform>
+		<platform config="release">
+			<staticLibrary>lib/macosx/libgtest.a</staticLibrary>
+		</platform>
+	</platform>
+</block>
+<!-- <template>templates/Basic GTest/template.xml</template> -->
+</cinder>
