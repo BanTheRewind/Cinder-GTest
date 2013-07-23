@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<cinder>
+<template name="GTest Basic" parent="org.libcinder.apptemplates.basicopengl">	
+	<supports os="msw" />
+	<supports os="macosx" />
+	<requires>org.libcinder.gtest</requires>
+	<headerPattern>include/*.h</headerPattern>
+	<sourcePattern>src/*.cpp</sourcePattern>
+	<includePath>include</includePath>
+	<platform compiler="vc10">
+		<platform config="debug">
+			<staticLibrary>lib/msw/gtestd.lib</staticLibrary>
+		</platform>
+		<platform config="release">
+			<staticLibrary>lib/msw/gtest.lib</staticLibrary>
+		</platform>
+	</platform>
+	<platform compiler="vc11">
+		<platform config="debug">
+			<staticLibrary>lib/msw/gtestd.lib</staticLibrary>
+		</platform>
+		<platform config="release">
+			<staticLibrary>lib/msw/gtest.lib</staticLibrary>
+		</platform>
+	</platform>
+	<platform os="macosx">
+		<platform config="debug">
+			<staticLibrary>lib/macosx/libgtest_d.a</staticLibrary>
+		</platform>
+		<platform config="release">
+			<staticLibrary>lib/macosx/libgtest.a</staticLibrary>
+		</platform>
+	</platform>
+</template>
+</cinder>
