@@ -1,35 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <cinder>
-<template name="GTest Basic" parent="org.libcinder.apptemplates.basicopengl">	
+<template name="GTest: Basic" parent="org.libcinder.apptemplates.basicopengl">	
 	<supports os="msw" />
 	<supports os="macosx" />
 	<requires>org.libcinder.gtest</requires>
-	<headerPattern>include/*.h</headerPattern>
-	<sourcePattern>src/*.cpp</sourcePattern>
+	<header replaceContents="true" replaceName="true">include/_TBOX_PREFIX_App.h</header>
+	<header>include/AppTest.h</header>
+	<source replaceContents="true" replaceName="true">src/_TBOX_PREFIX_App.cpp</source>
+	<source>src/AppTest.cpp</source>
 	<includePath>include</includePath>
-	<platform compiler="vc10">
-		<platform config="debug">
-			<staticLibrary>lib/msw/gtestd.lib</staticLibrary>
-		</platform>
-		<platform config="release">
-			<staticLibrary>lib/msw/gtest.lib</staticLibrary>
-		</platform>
-	</platform>
-	<platform compiler="vc11">
-		<platform config="debug">
-			<staticLibrary>lib/msw/gtestd.lib</staticLibrary>
-		</platform>
-		<platform config="release">
-			<staticLibrary>lib/msw/gtest.lib</staticLibrary>
-		</platform>
-	</platform>
-	<platform os="macosx">
-		<platform config="debug">
-			<staticLibrary>lib/macosx/libgtest_d.a</staticLibrary>
-		</platform>
-		<platform config="release">
-			<staticLibrary>lib/macosx/libgtest.a</staticLibrary>
-		</platform>
-	</platform>
 </template>
 </cinder>

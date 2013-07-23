@@ -34,33 +34,41 @@
 * 
 */
 
-#pragma once
+#include "_TBOX_PREFIX_App.h"
 
-#include "CinderGTest.h"
+using namespace ci;
+using namespace ci::app;
+using namespace std;
+using namespace testing;
 
-/* 
-* This application demonstrates how to implement Google C++ Testing
-* in Cinder. The application itself does essentially nothing, while
-* the "AppTest" class performs some tests and experiments on it. 
-* Pay attenetion to the macro used to initialize the application 
-* in the CPP file.
-* 
-* Errors will be reported to your debug console complete with
-* file, line number, error description, and your custom message, if any.
-* 
-* Check out the wiki to get the most out of Google Test:
-* http://code.google.com/p/googletest/w/list
-*/
-class CinderGTestApp : public ci::app::AppNative
+void _TBOX_PREFIX_App::draw()
 {
-public:
-	void						draw();
-	void						setup();
-	void						update();
+	gl::setViewport( getWindowBounds() );
+	gl::clear( ColorAf::black() );
+}
 
-	int32_t						getCounter();
-	std::vector<uint32_t>&		getNumbers();
-private:
-	int32_t						mCounter;
-	std::vector<uint32_t>		mNumbers;
-};
+int32_t _TBOX_PREFIX_App::getCounter()
+{
+	return mCounter;
+}
+
+vector<uint32_t>& _TBOX_PREFIX_App::getNumbers()
+{
+	return mNumbers;
+}
+
+void _TBOX_PREFIX_App::setup()
+{
+	mCounter = 0;
+}
+
+void _TBOX_PREFIX_App::update()
+{
+	mNumbers.push_back( mNumbers.size() );
+}
+
+#if defined( _TEST )
+	CINDER_APP_GTEST( _TBOX_PREFIX_App, RendererGl )
+#else
+	CINDER_APP_BASIC( _TBOX_PREFIX_App, RendererGl )
+#endif
